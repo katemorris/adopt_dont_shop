@@ -1,4 +1,6 @@
 <h1>Adopt Don't Shop Shelters</h1>
+<ul>
 <% @shelters.each do |shelter| %>
-  <h2><%= shelter %></h2>
+  <li><%= shelter.name %></li>
 <% end %>
+</ul>

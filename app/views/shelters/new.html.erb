@@ -1,0 +1,11 @@
+<form action="/shelters" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h2>Suggest a new shelter!</h2>
+  <p>All shelters are added immediately, but we reserve the right to remove a shelter at any time.</p>
+  <input type='text' name='shelter[name]'/><br/>
+  <input type='text' name='shelter[address]'></input><br/>
+  <input type='text' name='shelter[city]'></input><br/>
+  <input type='text' name='shelter[state]'></input><br/>
+  <input type='text' name='shelter[zip]'></input><br/>
+  <input type='submit'/>
+</form>

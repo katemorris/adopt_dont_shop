@@ -22,6 +22,21 @@ class SheltersController < ApplicationController
   end
 
   def show
+    @shelter = Shelter.find(params[:id])
+  end
 
+  def update
+    shelter = Shelter.find(params[:id])
+    shelter.update({
+      title: params[:shelter][:title],
+      description: params[:shelter][:description]
+      })
+    shelter.save
+    redirect_to "/shelters/#{shelter.id}"
+  end
+
+  def destroy
+    Shelter.destroy(params[:id])
+    redirect_to '/shelters'
   end
 end

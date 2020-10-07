@@ -1,11 +1,12 @@
-<form action="/shelters" method="post">
+<form action="/shelters/<%= params[:id] %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <h2>Suggest a new shelter!</h2>
-  <p>All shelters are added immediately, but we reserve the right to remove a shelter at any time.</p>
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit Shelter Data</p>
+  <p>All shelter edits are added immediately, but we reserve the right to edit a shelter's details at any time.</p>
   Shelter Name: <input type='text' name='shelter[name]'/><br/>
   Street Address: <input type='text' name='shelter[address]'></input><br/>
   City: <input type='text' name='shelter[city]'></input><br/>
   State (AB): <input type='text' name='shelter[state]'></input><br/>
   Zip: <input type='text' name='shelter[zip]'></input><br/>
-  <input type='submit' value='Create Shelter'/>
+  <input type='submit' value='Edit Shelter'/>
 </form>

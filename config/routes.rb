@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :shelters
   resources :pets
+  get 'shelters/:id/pets', to: 'shelters#pets'
 end

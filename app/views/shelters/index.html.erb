@@ -1,4 +1,7 @@
 <h1>Adopt Don't Shop Shelters</h1>
+<ul>
 <% @shelters.each do |shelter| %>
-  <h2><%= shelter %></h2>
+  <li><a href="/shelters/<%= shelter.id %>"><%= shelter.name %><a></li>
 <% end %>
+</ul>
+<p>Suggest a <a href="/shelters/new">New Shelter</a></p>

@@ -15,14 +15,14 @@ describe "As a visitor" do
         image: "https://www.dogmal.com/wp-content/uploads/2017/04/corgi-husky-mix-cost.jpg",
         name: "Arwen",
         approximate_age: 2,
-        sex: female,
+        sex: "female",
         shelter: "Austin Pets Alive!"
       )
       pet_1 = Pet.create(
         image: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49343878/1/?bust=1602094062&width=1080",
         name: "Nessa",
         approximate_age: 1,
-        sex: female,
+        sex: "female",
         shelter: "Austin Animal Shelter"
       )
 

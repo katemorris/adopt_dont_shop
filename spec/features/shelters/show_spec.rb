@@ -14,6 +14,16 @@ describe "As a visitor" do
       expect(page).to have_content(shelter_1.zip)
     end
 
+    it "I see a link to view pets" do
+      shelter_1 = Shelter.create(name: 'Austin Pets Alive!', address: '123 Happy Ln', city: 'Austin', state: 'TX', zip:'78704')
+
+      visit "/shelters/#{shelter_1.id}"
+      expect(page).to have_link('View Pets')
+      click_link('View Pets')
+
+      expect(current_path).to eq("/shelters/#{shelter_1.id}/pets")
+    end
+
     it "I see a link to edit the shelter" do
       shelter_1 = Shelter.create(name: 'Austin Pets Alive!', address: '123 Happy Ln', city: 'Austin', state: 'TX', zip:'78704')
 

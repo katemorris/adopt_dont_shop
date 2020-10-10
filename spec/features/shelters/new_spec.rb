@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe 'As a visitor' do
   describe 'when I visit the Shelter Index page' do
-    it 'the visitor sees a link to create a new Shelter' do
+    it 'I see a link to create a new Shelter' do
       visit '/shelters'
 
       expect(page).to have_link('New Shelter')
     end
 
-    it 'when the New Shelter link is clicked, the visitor goes to /shelters/new and sees a form' do
+    it 'I go to /shelters/new and sees a form' do
       visit '/shelters'
       click_on 'New Shelter'
 

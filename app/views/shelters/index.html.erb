@@ -1,7 +1,7 @@
 <h1>Adopt Don't Shop Shelters</h1>
 <ul>
 <% @shelters.each do |shelter| %>
-  <li><a href="/shelters/<%= shelter.id %>"><%= shelter.name %><a></li>
+  <li><a href="/shelters/<%= shelter.id %>"><%= shelter.name %><a> - (<%= link_to "Edit Shelter", edit_shelter_path(shelter) %>)/(<%= link_to "Delete", "/shelters/#{shelter.id}", method: "delete" %>)</li>
 <% end %>
 </ul>
 <p>Suggest a <a href="/shelters/new">New Shelter</a></p>

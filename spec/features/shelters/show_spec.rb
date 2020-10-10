@@ -19,7 +19,7 @@ describe "As a visitor" do
       shelter_2 = Shelter.create(name: 'City of Austin Animal Shelter', address: '453 City St', city: 'Austin', state: 'TX', zip:'78754')
 
       visit "/shelters/#{shelter_1.id}"
-      click_button "Delete Shelter"
+      click_link "Delete Shelter"
 
       expect(current_path).to eq("/shelters")
       expect(page).not_to have_content("#{shelter_1.name}")

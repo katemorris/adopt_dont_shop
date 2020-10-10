@@ -46,9 +46,3 @@ describe "As a visitor" do
     end
   end
 end
-
-# Then I see a link to delete the pet "Delete Pet"
-# When I click the link
-# Then a 'DELETE' request is sent to '/pets/:id',
-# the pet is deleted,
-# and I am redirected to the pet index page where I no longer see this pet

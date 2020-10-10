@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'As a visitor' do
   describe "I visit '/shelters/:shelter_id/pets'" do
-    it 'I see each Pet that can be adopted from that Shelter with that shelter_id and pet data' do
+    it 'I see all pets, their data, and a count of pets at the shelter' do
       shelter = Shelter.create(
         name: 'Austin Pets Alive!',
         address: '123 Happy Ln',
@@ -26,6 +26,8 @@ describe 'As a visitor' do
       )
 
       visit "/shelters/#{shelter.id}/pets"
+
+      expect(page).to have_content('Pets Available: 2')
 
       expect(page).to have_content(pet_1.name)
       expect(page).to have_link(pet_1.name)

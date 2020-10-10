@@ -1,6 +1,7 @@
-<h1><%= @shelter.name %> Available Pets</h1>
+<h2><%= @shelter.name %> Available Pets</h2>
+Pets Available: <%= @shelter.pets.pet_count %>
 <% @shelter.pets.each do |pet| %>
-  <h2><%= link_to pet.name, pet_path(pet) %></h2>
+  <h3><%= link_to pet.name, pet_path(pet) %></h3>
     <img src=<%= pet.image %> />
     <ul>
       <li>Age: <%= pet.approximate_age %></li>

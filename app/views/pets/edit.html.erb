@@ -1,0 +1,23 @@
+<%= form_with(url: pet_path(@pet), method: :patch) do %>
+  <%= label_tag(:name, "Pet Name:") %>
+  <%= text_field_tag(:name, "#{@pet.name}" ) %>
+
+  <%= label_tag(:image, "Pet Image (URL):") %>
+  <%= text_field_tag(:image, "#{@pet.image}" ) %>
+
+  <%= label_tag(:approximate_age, "Pet Age (approx):") %>
+  <%= text_field_tag(:approximate_age, "#{@pet.approximate_age}" ) %>
+
+  <%= radio_button_tag(:sex, "Female") %>
+  <%= label_tag(:sex_female, "Female") %>
+  <%= radio_button_tag(:sex, "Male") %>
+  <%= label_tag(:sex_male, "Male") %>
+
+  <%= label_tag(:description, "Pet Description:") %>
+  <%= text_area_tag(:description, "#{@pet.description}", size: "24x6") %>
+
+  <%= hidden_field_tag(:shelter_id, "#{@pet.shelter_id}") %>
+  <%= hidden_field_tag(:status, "Adoptable") %>
+
+  <%= submit_tag("Update Pet") %>
+<% end %>

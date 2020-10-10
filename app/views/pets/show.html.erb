@@ -10,4 +10,5 @@
     <p>Status: <%= @pet.status %> -
       Find <%= @pet.name %> at <a href="/shelters/<%= @pet.shelter_id %>"><%= @pet.shelter.name %></a></p>
   </div>
+  <%= link_to "Update Pet", edit_pet_path(@pet) %>
 </section>

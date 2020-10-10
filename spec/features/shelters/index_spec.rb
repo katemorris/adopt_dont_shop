@@ -23,12 +23,18 @@ describe "As a visitor" do
 
       expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
     end
+
+    it "I expect to see a link to delete a shelter" do
+      shelter_1 = Shelter.create(name: 'Austin Pets Alive!', address: '123 Happy Ln', city: 'Austin', state: 'TX', zip:'78704')
+
+      visit '/shelters'
+
+      expect(page).to have_link("Delete")
+
+      click_link("Delete")
+
+      expect(current_path).to eq("/shelters")
+      expect(page).to_not have_content(shelter_1.name)
+    end
   end
 end
-# User Story 14, Shelter Delete From Shelter Index Page
-#
-# As a visitor
-# When I visit the shelter index page
-# Next to every shelter, I see a link to delete that shelter
-# When I click the link
-# I am returned to the Shelter Index Page where I no longer see that shelter

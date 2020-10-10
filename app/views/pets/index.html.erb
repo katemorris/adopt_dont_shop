@@ -1,6 +1,6 @@
 <h1>Adopt Don't Shop Available Pets</h1>
 <% @pets.each do |pet| %>
-  <h2><a href="/pets/<%= pet.id %>"><%= pet.name %><a></h2>
+  <h2><%= link_to pet.name, pet_path(pet) %></h2>
     <img src=<%= pet.image %> />
     <ul>
       <li>Age: <%= pet.approximate_age %></li>

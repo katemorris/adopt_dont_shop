@@ -16,13 +16,13 @@ describe "As a visitor" do
 
       visit "/pets/#{pet_1.id}"
 
-      expect(page).to have_content("#{pet_1.name}")
+      expect(page).to have_content(pet_1.name)
       expect(page).to have_xpath("//img[contains(@src,'#{pet_1.image}')]")
-      expect(page).to have_content("#{pet_1.approximate_age}")
-      expect(page).to have_content("#{pet_1.sex}")
-      expect(page).to have_content("#{pet_1.status}")
-      expect(page).to have_content("#{pet_1.description}")
-      expect(page).to have_content("#{pet_1.shelter.name}")
+      expect(page).to have_content(pet_1.approximate_age)
+      expect(page).to have_content(pet_1.sex)
+      expect(page).to have_content(pet_1.status)
+      expect(page).to have_content(pet_1.description)
+      expect(page).to have_link(pet_1.shelter.name)
     end
 
     it "I can delete the pet's data" do
@@ -42,7 +42,7 @@ describe "As a visitor" do
       click_link "Delete Pet"
 
       expect(current_path).to eq("/pets")
-      expect(page).not_to have_content("#{pet_1.name}")
+      expect(page).not_to have_content(pet_1.name)
 
     end
   end

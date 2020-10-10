@@ -8,8 +8,8 @@ describe "As a visitor" do
 
       visit '/shelters'
 
-      expect(page).to have_content("#{shelter_1.name}")
-      expect(page).to have_content("#{shelter_2.name}")
+      expect(page).to have_link(shelter_1.name)
+      expect(page).to have_content(shelter_2.name)
     end
 
     it "I expect to see a link to the edit page of a shelter" do

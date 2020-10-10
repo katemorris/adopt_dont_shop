@@ -21,14 +21,14 @@ describe "As a visitor" do
 
       visit "/shelters/#{shelter_1.id}/pets"
 
-      expect(page).to have_content("#{pet_1.name}")
+      expect(page).to have_content(pet_1.name)
       expect(page).to have_xpath("//img[contains(@src,'#{pet_1.image}')]")
-      expect(page).to have_content("#{pet_1.approximate_age}")
-      expect(page).to have_content("#{pet_1.sex}")
-      expect(page).to have_content("#{pet_2.name}")
+      expect(page).to have_content(pet_1.approximate_age)
+      expect(page).to have_content(pet_1.sex)
+      expect(page).to have_content(pet_2.name)
       expect(page).to have_xpath("//img[contains(@src,'#{pet_2.image}')]")
-      expect(page).to have_content("#{pet_2.approximate_age}")
-      expect(page).to have_content("#{pet_2.sex}")
+      expect(page).to have_content(pet_2.approximate_age)
+      expect(page).to have_content(pet_2.sex)
     end
 
     it "I can edit each pet in the list" do

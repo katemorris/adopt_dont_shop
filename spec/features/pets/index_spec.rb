@@ -32,5 +32,29 @@ describe "As a visitor" do
       expect(page).to have_content("#{pet_2.sex}")
       expect(page).to have_content("#{pet_2.shelter.name}")
     end
+
+    it "I can edit each pet in the list" do
+      shelter_1 = Shelter.create(name: 'Austin Pets Alive!', address: '123 Happy Ln', city: 'Austin', state: 'TX', zip:'78704')
+      pet_1 = Pet.create(
+        image: "https://www.dogmal.com/wp-content/uploads/2017/04/corgi-husky-mix-cost.jpg",
+        name: "Arwen",
+        approximate_age: 2,
+        sex: "female",
+        shelter_id: shelter_1.id
+      )
+
+      visit '/pets'
+
+      expect(page).to have_link("Edit")
+
+      click_link("Edit")
+
+      expect(current_path).to eq("/pets/#{pet_1.id}/edit")
+    end
   end
 end
+# As a visitor
+# When I visit the pets index page or a shelter pets index page
+# Next to every pet, I see a link to edit that pet's info
+# When I click the link
+# I should be taken to that pets edit page where I can update its information just like in User Story 11

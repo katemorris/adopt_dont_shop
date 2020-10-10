@@ -5,7 +5,7 @@
     <ul>
       <li>Age: <%= pet.approximate_age %></li>
       <li>Sex: <%= pet.sex %></li>
-      <li><%= link_to "Update Pet", edit_pet_path(pet) %></li>
+      <li><%= link_to "Edit", edit_pet_path(pet) %></li>
       <li><%= link_to "Delete Pet", pet, method: "delete" %></li>
     </ul>
 <% end %>

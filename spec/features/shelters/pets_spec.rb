@@ -40,17 +40,14 @@ describe "As a visitor" do
         sex: "female",
         shelter_id: shelter_1.id
       )
-      pet_2 = Pet.create(
-        image: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49343878/1/?bust=1602094062&width=1080",
-        name: "Nessa",
-        approximate_age: 1,
-        sex: "female",
-        shelter_id: shelter_1.id
-      )
 
       visit "/shelters/#{shelter_1.id}/pets"
 
-      
+      expect(page).to have_link("Edit")
+
+      click_link("Edit")
+
+      expect(current_path).to eq("/pets/#{pet_1.id}/edit")
     end
   end
 end

@@ -49,6 +49,25 @@ describe "As a visitor" do
 
       expect(current_path).to eq("/pets/#{pet_1.id}/edit")
     end
+
+    it "I can delete each pet in the list" do
+      shelter_1 = Shelter.create(name: 'Austin Pets Alive!', address: '123 Happy Ln', city: 'Austin', state: 'TX', zip:'78704')
+      pet_1 = Pet.create(
+        image: "https://www.dogmal.com/wp-content/uploads/2017/04/corgi-husky-mix-cost.jpg",
+        name: "Arwen",
+        approximate_age: 2,
+        sex: "female",
+        shelter_id: shelter_1.id
+      )
+
+      visit "/shelters/#{shelter_1.id}/pets"
+
+      expect(page).to have_link("Delete Pet")
+
+      click_link("Delete Pet")
+
+      expect(current_path).to eq("/pets")
+    end
   end
 end
 

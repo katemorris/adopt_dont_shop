@@ -19,11 +19,11 @@ describe "As a visitor" do
     it "I fill out the form and see the new shelter on /shelters" do
       visit "/shelters/new"
 
-      fill_in "shelter[name]", with: "Dumb Friends League"
-      fill_in "shelter[address]", with: "9903 Faithful Rd"
-      fill_in "shelter[city]", with: "Denver"
-      fill_in "shelter[state]", with: "CO"
-      fill_in "shelter[zip]", with: "80382"
+      fill_in :name, with: "Dumb Friends League"
+      fill_in :address, with: "9903 Faithful Rd"
+      fill_in :city, with: "Denver"
+      fill_in :state, with: "CO"
+      fill_in :zip, with: "80382"
       click_button "Create Shelter"
 
       expect(current_path).to eq("/shelters")

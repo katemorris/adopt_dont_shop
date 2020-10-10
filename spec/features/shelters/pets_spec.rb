@@ -70,9 +70,3 @@ describe "As a visitor" do
     end
   end
 end
-
-# As a visitor
-# When I visit the pets index page or a shelter pets index page
-# Next to every pet, I see a link to edit that pet's info
-# When I click the link
-# I should be taken to that pets edit page where I can update its information just like in User Story 11

@@ -1,0 +1,15 @@
+<section class="pet-card">
+  <div class="pet-image">
+    <img src=<%= @pet.image %> />
+  </div>
+  <div class="pet-data">
+    <h1>Meet <%= @pet.name %></h1>
+    <p><%= @pet.description %></p>
+    <p>Guessed Age: <%= @pet.approximate_age %></p>
+    <p>Sex: <%= @pet.sex %></p>
+    <p>Status: <%= @pet.status %> -
+      Find <%= @pet.name %> at <a href="/shelters/<%= @pet.shelter_id %>"><%= @pet.shelter.name %></a></p>
+  </div>
+  <%= link_to "Update Pet", edit_pet_path(@pet) %>
+  <%= link_to "Delete Pet", @pet, method: "delete" %>
+</section>

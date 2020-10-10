@@ -38,6 +38,7 @@ describe "As a visitor" do
       )
 
       visit "/pets/#{pet_1.id}"
+      expect(page).to have_link("Delete Pet")
       click_link "Delete Pet"
 
       expect(current_path).to eq("/pets")

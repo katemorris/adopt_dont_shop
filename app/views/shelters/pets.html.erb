@@ -1,15 +1,18 @@
-<h2><%= @shelter.name %> Available Pets</h2>
-Total Pets: <%= @shelter.pets.pet_count %>
-<%= link_to "See Adoptable Pets Only", shelter_pets_path(@shelter, adoptable:true) %>
-<%= link_to "See Pending Pets Only", shelter_pets_path(@shelter, adoptable:false) %>
-<% @pets_list.each do |pet| %>
-  <h3><%= link_to pet.name, pet_path(pet) %></h3>
-    <img src=<%= pet.image %> />
-    <ul>
-      <li>Age: <%= pet.approximate_age %></li>
-      <li>Sex: <%= pet.sex %></li>
-      <li><%= link_to "Edit", edit_pet_path(pet) %></li>
-      <li><%= link_to "Delete Pet", pet, method: "delete" %></li>
-    </ul>
-<% end %>
-<p><a href="/shelters/<%= @shelter.id %>/pets/new">Create Pet</a></p>
+<% content_for :title, "View the Pets at #{@shelter.name}" %>
+<section>
+  <h2><%= @shelter.name %> Available Pets</h2>
+  Total Pets: <%= @shelter.pets.pet_count %>
+  <%= link_to "See Adoptable Pets Only", shelter_pets_path(@shelter, adoptable:true) %>
+  <%= link_to "See Pending Pets Only", shelter_pets_path(@shelter, adoptable:false) %>
+  <% @pets_list.each do |pet| %>
+    <h3><%= link_to pet.name, pet_path(pet) %></h3>
+      <img src=<%= pet.image %> />
+      <ul>
+        <li>Age: <%= pet.approximate_age %></li>
+        <li>Sex: <%= pet.sex %></li>
+        <li><%= link_to "Edit", edit_pet_path(pet) %></li>
+        <li><%= link_to "Delete Pet", pet, method: "delete" %></li>
+      </ul>
+  <% end %>
+  <p><%= link_to "Create Pet", new_pet_path(@shelter) %></p>
+</section>

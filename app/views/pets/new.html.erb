@@ -1,23 +1,26 @@
-<%= form_with(url: "/pets", method: "post") do %>
-  <%= label_tag(:name, "Pet Name:") %>
-  <%= text_field_tag(:name) %>
+<% content_for :title, "Add a new pet" %>
+<section>
+  <%= form_with(url: "/pets", method: "post") do %>
+    <%= label_tag(:name, "Pet Name:") %>
+    <%= text_field_tag(:name) %>
 
-  <%= label_tag(:image, "Pet Image (URL):") %>
-  <%= text_field_tag(:image) %>
+    <%= label_tag(:image, "Pet Image (URL):") %>
+    <%= text_field_tag(:image) %>
 
-  <%= label_tag(:approximate_age, "Pet Age (approx):") %>
-  <%= text_field_tag(:approximate_age) %>
+    <%= label_tag(:approximate_age, "Pet Age (approx):") %>
+    <%= text_field_tag(:approximate_age) %>
 
-  <%= radio_button_tag(:sex, "Female") %>
-  <%= label_tag(:sex_female, "Female") %>
-  <%= radio_button_tag(:sex, "Male") %>
-  <%= label_tag(:sex_male, "Male") %>
+    <%= radio_button_tag(:sex, "Female") %>
+    <%= label_tag(:sex_female, "Female") %>
+    <%= radio_button_tag(:sex, "Male") %>
+    <%= label_tag(:sex_male, "Male") %>
 
-  <%= label_tag(:description, "Pet Description:") %>
-  <%= text_area_tag(:description, "Tell us about the pet!", size: "24x6") %>
+    <%= label_tag(:description, "Pet Description:") %>
+    <%= text_area_tag(:description, "Tell us about the pet!", size: "24x6") %>
 
-  <%= hidden_field_tag(:shelter_id, "#{@shelter.id}") %>
-  <%= hidden_field_tag(:status, "Adoptable") %>
+    <%= hidden_field_tag(:shelter_id, "#{@shelter.id}") %>
+    <%= hidden_field_tag(:status, "Adoptable") %>
 
-  <%= submit_tag("Create Pet") %>
-<% end %>
+    <%= submit_tag("Create Pet") %>
+  <% end %>
+</section>

@@ -1,4 +1,6 @@
-<%= form_with(url: pet_path(@pet), method: :patch) do %>
+<% content_for :title, "Edit Details for #{@pet.name}" %>
+<section>
+  <%= form_with(url: pet_path(@pet), method: :patch) do %>
   <%= label_tag(:name, "Pet Name:") %>
   <%= text_field_tag(:name, @pet.name ) %>
 
@@ -18,3 +20,4 @@
 
   <%= submit_tag("Update Pet") %>
 <% end %>
+</section>

@@ -1,21 +1,24 @@
-<h1>Suggest a new shelter!</h1>
-<p>All shelters are added immediately, but we reserve the right to remove a shelter at any time.</p>
+<% content_for :title, "Add a New Shelter" %>
+<section>
+  <h2>Suggest a new shelter!</h2>
+  <p>All shelters are added immediately, but we reserve the right to remove a shelter at any time.</p>
 
-<%= form_tag('/shelters') do %>
-  <%= label_tag(:name, 'Shelter Name:') %>
-  <%= text_field_tag(:name) %>
-
-  <%= label_tag(:address, 'Shelter Address:') %>
-  <%= text_field_tag(:address) %>
-
-  <%= label_tag(:city, 'Shelter City:') %>
-  <%= text_field_tag(:city) %>
-
-  <%= label_tag(:state, 'Shelter State:') %>
-  <%= text_field_tag(:state) %>
-
-  <%= label_tag(:zip, 'Shelter Zip:') %>
-  <%= text_field_tag(:zip) %>
-
-  <%= submit_tag('Create Shelter') %>
-<% end %>
+  <%= form_tag('/shelters') do %>
+    <%= label_tag(:name, 'Shelter Name:') %>
+    <%= text_field_tag(:name) %>
+    <br />
+    <%= label_tag(:address, 'Shelter Address:') %>
+    <%= text_field_tag(:address) %>
+    <br />
+    <%= label_tag(:city, 'Shelter City:') %>
+    <%= text_field_tag(:city) %>
+    <br />
+    <%= label_tag(:state, 'Shelter State:') %>
+    <%= text_field_tag(:state) %>
+    <br />
+    <%= label_tag(:zip, 'Shelter Zip:') %>
+    <%= text_field_tag(:zip) %>
+    <br />
+    <%= submit_tag('Create Shelter', class: 'submit') %>
+  <% end %>
+</section>

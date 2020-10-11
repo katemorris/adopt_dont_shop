@@ -57,8 +57,6 @@ class PetsController < ApplicationController
 
   def destroy
     Pet.destroy(params[:id])
-
-    flash[:notice] = 'Pet removed'
     redirect_to '/pets'
   end
 
@@ -66,9 +64,5 @@ class PetsController < ApplicationController
 
   def pet_params
     params.permit(:name, :image, :description, :sex, :approximate_age, :shelter_id, :status)
-  end
-
-  def pet_status
-    params.permit(:status)
   end
 end

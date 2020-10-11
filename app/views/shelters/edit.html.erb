@@ -1,21 +1,25 @@
-<h1>Edit <%= @shelter.name %> Data</h1>
-<p>All shelter edits are added immediately, but we reserve the right to edit a shelter's details at any time.</p>
+<% content_for :title, "Edit Details for #{@shelter.name}" %>
+<section>
+  <h2>Edit <%= @shelter.name %> Data</h2>
+  <p>All shelter edits are added immediately, but we reserve the right to edit a shelter's details at any time.</p>
 
-<%= form_with(url: shelter_path(@shelter), method: :patch) do %>
-  <%= label_tag(:name, 'Shelter Name:') %>
-  <%= text_field_tag(:name, @shelter.name.to_s) %>
+  <%= form_with(url: shelter_path(@shelter), method: :patch) do %>
+    <%= label_tag(:name, 'Shelter Name:') %>
+    <%= text_field_tag(:name, @shelter.name.to_s) %>
+    <br />
+    <%= label_tag(:address, 'Shelter Address:') %>
+    <%= text_field_tag(:address, @shelter.address.to_s) %>
+    <br />
+    <%= label_tag(:city, 'Shelter City:') %>
+    <%= text_field_tag(:city, @shelter.city.to_s) %>
+    <br />
+    <%= label_tag(:state, 'Shelter State:') %>
+    <%= text_field_tag(:state, @shelter.state.to_s) %>
+    <br />
+    <%= label_tag(:zip, 'Shelter Zip:') %>
+    <%= text_field_tag(:zip, @shelter.zip.to_s) %>
+    <br />
+    <%= submit_tag('Update Shelter', class: 'submit') %>
+  <% end %>
 
-  <%= label_tag(:address, 'Shelter Address:') %>
-  <%= text_field_tag(:address, @shelter.address.to_s) %>
-
-  <%= label_tag(:city, 'Shelter City:') %>
-  <%= text_field_tag(:city, @shelter.city.to_s) %>
-
-  <%= label_tag(:state, 'Shelter State:') %>
-  <%= text_field_tag(:state, @shelter.state.to_s) %>
-
-  <%= label_tag(:zip, 'Shelter Zip:') %>
-  <%= text_field_tag(:zip, @shelter.zip.to_s) %>
-
-  <%= submit_tag('Update Shelter') %>
-<% end %>
+</section>

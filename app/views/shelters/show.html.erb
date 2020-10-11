@@ -1,8 +1,12 @@
-<h1><%= @shelter.name %></h1>
-<p>Address:<br />
-<%= @shelter.address %><br />
-<%= @shelter.city %>, <%= @shelter.state %> <%= @shelter.zip %>
-</p>
-<%= link_to "View Pets", shelter_pets_path(@shelter) %>
-<%= link_to "Update Shelter", edit_shelter_path(@shelter) %>
-<%= link_to "Delete Shelter", @shelter, method: "delete" %>
+<% content_for :title, "About #{@shelter.name}" %>
+<section>
+  <h2><%= @shelter.name %></h2>
+  <%= link_to "View Pets", shelter_pets_path(@shelter) %>
+  <p>Address:<br />
+  <%= @shelter.address %><br />
+  <%= @shelter.city %>, <%= @shelter.state %> <%= @shelter.zip %>
+  </p>
+
+  <%= link_to "Update Shelter", edit_shelter_path(@shelter) %>
+  <%= link_to "Delete Shelter", @shelter, method: "delete" %>
+</section>

@@ -13,11 +13,26 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
     if @pet.adoptable?
-      @adopt_link = 'Change to Pending Adoption'
-      redirect_to pet_adoptable_path(@pet)
+      @link = 'Change to Adoption Pending'
+      @path = pending_pet_path(@pet)
     else
-      @adopt_link = 'Change to Adoptable'
+      @link = 'Change to Adoptable'
+      @path = adoptable_pet_path(@pet)
     end
+  end
+
+  def adoptable
+    @pet = Pet.find(params[:id])
+    @pet.update(status: "Adoptable")
+    @pet.save
+    redirect_to "/pets/#{@pet.id}"
+  end
+
+  def pending
+    @pet = Pet.find(params[:id])
+    @pet.update(status: "Pending")
+    @pet.save
+    redirect_to "/pets/#{@pet.id}"
   end
 
   def new
@@ -51,5 +66,9 @@ class PetsController < ApplicationController
 
   def pet_params
     params.permit(:name, :image, :description, :sex, :approximate_age, :shelter_id, :status)
+  end
+
+  def pet_status
+    params.permit(:status)
   end
 end

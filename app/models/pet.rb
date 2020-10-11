@@ -22,7 +22,6 @@ class Pet < ApplicationRecord
   end
 
   def adoptable?
-    require "pry"; binding.pry
     self.status.downcase == 'adoptable'
   end
 end

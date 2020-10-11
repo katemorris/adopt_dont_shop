@@ -1,6 +1,13 @@
 class PetsController < ApplicationController
   def index
     @pets = Pet.all
+    if params[:adoptable] == "true"
+      @pets_list = @pets.adoptable_filter
+    elsif params[:adoptable] == "false"
+      @pets_list = @pets.pending_filter
+    else
+      @pets_list = @pets.adoptable_first
+    end
   end
 
   def show

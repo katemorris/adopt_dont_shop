@@ -39,6 +39,45 @@ describe 'As a visitor' do
       expect(page).to have_link(pet_2.shelter.name)
     end
 
+    it 'I can sort by adoptable or pending pets' do
+      shelter = Shelter.create(
+        name: 'Austin Pets Alive!',
+        address: '123 Happy Ln',
+        city: 'Austin',
+        state: 'TX',
+        zip: '78704'
+      )
+      pet_1 = Pet.create(
+        name: 'Arwen',
+        approximate_age: 2,
+        sex: 'female',
+        status: 'Adoptable',
+        shelter_id: shelter.id
+      )
+      pet_2 = Pet.create(
+        name: 'Nessa',
+        approximate_age: 1,
+        sex: 'female',
+        status: 'Pending',
+        shelter_id: shelter.id
+      )
+      pet_3 = Pet.create(
+        name: 'Longhair',
+        approximate_age: 1,
+        sex: 'male',
+        status: 'Adoptable',
+        shelter_id: shelter.id
+      )
+
+      visit "/pets"
+
+      expect(page).to have_link('See Adoptable Pets Only')
+      expect(page).to have_link('See Pending Pets Only')
+
+      click_link('See Pending Pets Only')
+      expect(page).to_not have_content('Longhair')
+    end
+
     it 'I can edit each pet in the list' do
       shelter = Shelter.create(
         name: 'Austin Pets Alive!',

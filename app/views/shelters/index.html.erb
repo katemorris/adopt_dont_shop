@@ -11,7 +11,8 @@
 
   <ul>
   <% @shelters.each do |shelter| %>
-    <li><%= link_to shelter.name, shelter_path(shelter) %> - (<%= link_to "Edit Shelter", edit_shelter_path(shelter) %>)/(<%= link_to "Delete", "/shelters/#{shelter.id}", method: "delete" %>)</li>
+    <li><h3><%= link_to shelter.name, shelter_path(shelter) %></h3>
+      (<%= link_to "Edit Shelter", edit_shelter_path(shelter) %>)/(<%= link_to "Delete", "/shelters/#{shelter.id}", method: "delete" %>)</li>
   <% end %>
   </ul>
 

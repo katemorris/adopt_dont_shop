@@ -49,6 +49,7 @@ describe 'As a visitor' do
       )
       pet_1 = Pet.create(
         name: 'Arwen',
+        image: 'https://www.dogmal.com/wp-content/uploads/2017/04/corgi-husky-mix-cost.jpg',
         approximate_age: 2,
         sex: 'female',
         status: 'Adoptable',
@@ -56,6 +57,7 @@ describe 'As a visitor' do
       )
       pet_2 = Pet.create(
         name: 'Nessa',
+        image: 'https://www.dogmal.com/wp-content/uploads/2017/04/corgi-husky-mix-cost.jpg',
         approximate_age: 1,
         sex: 'female',
         status: 'Pending',
@@ -63,6 +65,7 @@ describe 'As a visitor' do
       )
       pet_3 = Pet.create(
         name: 'Longhair',
+        image: 'https://www.dogmal.com/wp-content/uploads/2017/04/corgi-husky-mix-cost.jpg',
         approximate_age: 1,
         sex: 'male',
         status: 'Adoptable',

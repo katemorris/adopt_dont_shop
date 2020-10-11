@@ -50,8 +50,10 @@ body {
    color: #1d3354;
    font-size: 1.5em;
  }
- section.pet-card {
-
+ .pet-card {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
  }
  section li {
    list-style-type: none;
@@ -82,6 +84,9 @@ body {
  }
  section.p {
    padding: 5px;
+ }
+ ul.pet-info {
+   height: 150px;
  }
  div.welcome-nav {
    width: 100%;

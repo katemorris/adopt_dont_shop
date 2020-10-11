@@ -8,4 +8,16 @@ class Pet < ApplicationRecord
   def self.adoptable_first
     Pet.order(:status)
   end
+
+  def self.adoptable_filter
+    Pet.all.select do |pet|
+      pet.status.downcase == 'adoptable'
+    end
+  end
+
+  def self.pending_filter
+    Pet.all.select do |pet|
+      pet.status.downcase == 'pending'
+    end
+  end
 end

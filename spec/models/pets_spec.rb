@@ -100,7 +100,7 @@ describe Pet, type: :model do
       )
 
       expect(shelter.pets.adoptable_filter).to eq([pet_1, pet_3])
-      expect(shelter.pets.adoptable_first).to_not eq([pet_1, pet_2, pet_3])
+      expect(shelter.pets.adoptable_filter).to_not eq([pet_1, pet_2, pet_3])
     end
 
     it '.pending_filter' do
@@ -133,8 +133,8 @@ describe Pet, type: :model do
         shelter_id: shelter.id
       )
 
-      expect(shelter.pets.adoptable_filter).to eq([pet_2])
-      expect(shelter.pets.adoptable_first).to_not eq([pet_1, pet_2, pet_3])
+      expect(shelter.pets.pending_filter).to eq([pet_2])
+      expect(shelter.pets.pending_filter).to_not eq([pet_1, pet_2, pet_3])
     end
   end
 end

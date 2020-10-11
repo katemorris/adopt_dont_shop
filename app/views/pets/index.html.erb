@@ -1,5 +1,5 @@
 <h1>Adopt Don't Shop Available Pets</h1>
-<% @pets.each do |pet| %>
+<% @pets.adoptable_first.each do |pet| %>
   <h2><%= link_to pet.name, pet_path(pet) %></h2>
     <img src=<%= pet.image %> />
     <ul>

@@ -7,7 +7,7 @@
     <ul>
       <li>Age: <%= pet.approximate_age %></li>
       <li>Sex: <%= pet.sex %></li>
-      <li>Find at: <a href="/shelters/<%= pet.shelter_id%>"><%= pet.shelter.name%></a></li>
+      <li>Find at: <%= link_to pet.shelter.name, shelter_path(pet.shelter_id) %></li>
       <li><%= link_to "Edit", edit_pet_path(pet) %></li>
       <li><%= link_to "Delete Pet", pet, method: "delete" %></li>
     </ul>

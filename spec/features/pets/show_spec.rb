@@ -31,7 +31,7 @@ describe 'As a visitor' do
       expect(page).to have_link(pet.shelter.name)
     end
 
-    it "I can delete the pet's data" do
+    it "I can edit or delete the pet's data" do
       shelter = Shelter.create(
         name: 'Austin Pets Alive!',
         address: '123 Happy Ln',
@@ -51,11 +51,55 @@ describe 'As a visitor' do
 
       visit "/pets/#{pet.id}"
       expect(page).to have_link('Delete Pet')
+      expect(page).to have_link('Update Pet')
       click_link 'Delete Pet'
 
       expect(current_path).to eq('/pets')
       expect(page).not_to have_content(pet.name)
+    end
 
+    it "I can edit the pet's status" do
+      shelter = Shelter.create(
+        name: 'Austin Pets Alive!',
+        address: '123 Happy Ln',
+        city: 'Austin',
+        state: 'TX',
+        zip: '78704'
+      )
+      pet_1 = Pet.create(
+        image: 'https://www.dogmal.com/wp-content/uploads/2017/04/corgi-husky-mix-cost.jpg',
+        name: 'Arwen',
+        approximate_age: 2,
+        sex: 'female',
+        shelter_id: shelter.id,
+        description: 'Arwen is a sweet girl with a special gift sure to add light to any home.',
+        status: 'Adoptable'
+      )
+
+      visit "/pets/#{pet_1.id}"
+      expect(page).to have_link('Change to Adoption Pending')
+      expect(page).not_to have_link('Change to Adoptable')
+      click_link 'Change to Adoption Pending'
+
+      expect(current_path).to eq("/pets/#{pet_1.id}")
+      expect(page).to have_content('Status: Pending')
+
+      pet_2 = Pet.create(
+        image: 'https://www.dogmal.com/wp-content/uploads/2017/04/corgi-husky-mix-cost.jpg',
+        name: 'Susie',
+        approximate_age: 2,
+        sex: 'female',
+        shelter_id: shelter.id,
+        status: 'Pending'
+      )
+
+      visit "/pets/#{pet_2.id}"
+      expect(page).not_to have_link('Change to Adoption Pending')
+      expect(page).to have_link('Change to Adoptable')
+      click_link 'Change to Adoptable'
+
+      expect(current_path).to eq("/pets/#{pet_2.id}")
+      expect(page).to have_content('Status: Adoptable')
     end
   end
 end

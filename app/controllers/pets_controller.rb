@@ -12,6 +12,12 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    if @pet.adoptable?
+      @adopt_link = 'Change to Pending Adoption'
+      redirect_to pet_adoptable_path(@pet)
+    else
+      @adopt_link = 'Change to Adoptable'
+    end
   end
 
   def new

@@ -20,4 +20,9 @@ class Pet < ApplicationRecord
       pet.status.downcase == 'pending'
     end
   end
+
+  def adoptable?
+    require "pry"; binding.pry
+    self.status.downcase == 'adoptable'
+  end
 end

@@ -57,8 +57,6 @@ class PetsController < ApplicationController
 
   def destroy
     Pet.destroy(params[:id])
-
-    flash[:notice] = 'Pet removed'
     redirect_to '/pets'
   end
 

@@ -66,6 +66,7 @@ describe Pet, type: :model do
       )
 
       expect(shelter.pets.adoptable_first).to eq([pet_1, pet_3, pet_2])
+      expect(shelter.pets.adoptable_first).to_not eq([pet_1, pet_2, pet_3])
     end
   end
 end

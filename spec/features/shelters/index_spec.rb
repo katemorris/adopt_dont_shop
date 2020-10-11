@@ -11,7 +11,7 @@ describe "As a visitor" do
         zip: '78704'
       )
     end
-    it "the visitor sees the name of each shelter" do
+    it 'the visitor sees the name of each shelter' do
       visit '/shelters'
 
       expect(page).to have_link(@shelter.name)

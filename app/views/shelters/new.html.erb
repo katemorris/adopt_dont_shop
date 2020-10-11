@@ -6,19 +6,19 @@
   <%= form_tag('/shelters') do %>
     <%= label_tag(:name, 'Shelter Name:') %>
     <%= text_field_tag(:name) %>
-
+    <br />
     <%= label_tag(:address, 'Shelter Address:') %>
     <%= text_field_tag(:address) %>
-
+    <br />
     <%= label_tag(:city, 'Shelter City:') %>
     <%= text_field_tag(:city) %>
-
+    <br />
     <%= label_tag(:state, 'Shelter State:') %>
     <%= text_field_tag(:state) %>
-
+    <br />
     <%= label_tag(:zip, 'Shelter Zip:') %>
     <%= text_field_tag(:zip) %>
-
-    <%= submit_tag('Create Shelter') %>
+    <br />
+    <%= submit_tag('Create Shelter', class: 'submit') %>
   <% end %>
 </section>

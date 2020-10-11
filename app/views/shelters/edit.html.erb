@@ -6,20 +6,20 @@
   <%= form_with(url: shelter_path(@shelter), method: :patch) do %>
     <%= label_tag(:name, 'Shelter Name:') %>
     <%= text_field_tag(:name, @shelter.name.to_s) %>
-
+    <br />
     <%= label_tag(:address, 'Shelter Address:') %>
     <%= text_field_tag(:address, @shelter.address.to_s) %>
-
+    <br />
     <%= label_tag(:city, 'Shelter City:') %>
     <%= text_field_tag(:city, @shelter.city.to_s) %>
-
+    <br />
     <%= label_tag(:state, 'Shelter State:') %>
     <%= text_field_tag(:state, @shelter.state.to_s) %>
-
+    <br />
     <%= label_tag(:zip, 'Shelter Zip:') %>
     <%= text_field_tag(:zip, @shelter.zip.to_s) %>
-
-    <%= submit_tag('Update Shelter') %>
+    <br />
+    <%= submit_tag('Update Shelter', class: 'submit') %>
   <% end %>
 
 </section>

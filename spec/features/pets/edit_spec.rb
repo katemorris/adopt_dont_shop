@@ -15,6 +15,7 @@ describe 'As a visitor' do
         name: 'Nessa',
         approximate_age: 1,
         sex: 'female',
+        status: 'adoptable',
         shelter_id: shelter.id
       )
 

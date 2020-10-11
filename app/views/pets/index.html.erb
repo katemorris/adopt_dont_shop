@@ -1,11 +1,13 @@
-<h1>Adopt Don't Shop Available Pets</h1>
-<% @pets.each do |pet| %>
+<h2>Adopt Don't Shop Pets</h2>
+<%= link_to "See Adoptable Pets Only", '/pets?adoptable=true' %>
+<%= link_to "See Pending Pets Only", '/pets?adoptable=false' %>
+<% @pets_list.each do |pet| %>
   <h2><%= link_to pet.name, pet_path(pet) %></h2>
     <img src=<%= pet.image %> />
     <ul>
       <li>Age: <%= pet.approximate_age %></li>
       <li>Sex: <%= pet.sex %></li>
-      <li>Find at: <a href="/shelters/<%= pet.shelter_id%>"><%= pet.shelter.name%></a></li>
+      <li>Find at: <%= link_to pet.shelter.name, shelter_path(pet.shelter_id) %></li>
       <li><%= link_to "Edit", edit_pet_path(pet) %></li>
       <li><%= link_to "Delete Pet", pet, method: "delete" %></li>
     </ul>

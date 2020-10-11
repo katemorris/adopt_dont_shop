@@ -1,6 +1,12 @@
 class SheltersController < ApplicationController
   def index
-    @shelters = Shelter.all
+    if params[:sort] == 'pets'
+      @shelters = Shelter.sort_by_pets
+    elsif params[:sort] == 'alpha'
+      @shelters = Shelter.sort_alpha
+    else
+      @shelters = Shelter.all
+    end
   end
 
   def new
@@ -31,13 +37,18 @@ class SheltersController < ApplicationController
 
   def destroy
     Shelter.destroy(params[:id])
-
-    flash[:notice] = 'Shelter removed'
     redirect_to '/shelters'
   end
 
   def pets
     @shelter = Shelter.find(params[:id])
+    if params[:adoptable] == "true"
+      @pets_list = @shelter.pets.adoptable_filter
+    elsif params[:adoptable] == "false"
+      @pets_list = @shelter.pets.pending_filter
+    else
+      @pets_list = @shelter.pets.adoptable_first
+    end
   end
 
   private

@@ -1,6 +1,9 @@
-<h1><%= @shelter.name %> Available Pets</h1>
-<% @shelter.pets.each do |pet| %>
-  <h2><%= link_to pet.name, pet_path(pet) %></h2>
+<h2><%= @shelter.name %> Available Pets</h2>
+Total Pets: <%= @shelter.pets.pet_count %>
+<%= link_to "See Adoptable Pets Only", shelter_pets_path(@shelter, adoptable:true) %>
+<%= link_to "See Pending Pets Only", shelter_pets_path(@shelter, adoptable:false) %>
+<% @pets_list.each do |pet| %>
+  <h3><%= link_to pet.name, pet_path(pet) %></h3>
     <img src=<%= pet.image %> />
     <ul>
       <li>Age: <%= pet.approximate_age %></li>

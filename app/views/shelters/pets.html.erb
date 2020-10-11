@@ -1,6 +1,6 @@
 <h2><%= @shelter.name %> Available Pets</h2>
 Pets Available: <%= @shelter.pets.pet_count %>
-<% @shelter.pets.each do |pet| %>
+<% @shelter.pets.adoptable_first.each do |pet| %>
   <h3><%= link_to pet.name, pet_path(pet) %></h3>
     <img src=<%= pet.image %> />
     <ul>

@@ -1,17 +1,22 @@
 <% content_for :title, "List of Pets" %>
 <section>
   <h2>Adopt Don't Shop Pets</h2>
-  <%= link_to "See Adoptable Pets Only", '/pets?adoptable=true' %>
-  <%= link_to "See Pending Pets Only", '/pets?adoptable=false' %>
+  <div class="filter-buttons">
+    <%= link_to "See All", '/pets', class: 'filter' %>
+    <%= link_to "See Adoptable Pets Only", '/pets?adoptable=true', class: 'filter' %>
+    <%= link_to "See Pending Pets Only", '/pets?adoptable=false', class: 'filter' %>
+  </div>
   <% @pets_list.each do |pet| %>
-    <h2><%= link_to pet.name, pet_path(pet) %></h2>
-      <img src=<%= pet.image %> />
-      <ul>
+    <h3><%= link_to pet.name, pet_path(pet) %></h3>
+    <div class="pet-card">
+      <%= image_tag(pet.image, height: "150px") %>
+      <ul class="pet-info">
         <li>Age: <%= pet.approximate_age %></li>
         <li>Sex: <%= pet.sex %></li>
         <li>Find at: <%= link_to pet.shelter.name, shelter_path(pet.shelter_id) %></li>
         <li><%= link_to "Edit", edit_pet_path(pet) %></li>
         <li><%= link_to "Delete Pet", pet, method: "delete" %></li>
       </ul>
+    </div>
   <% end %>
 </section>

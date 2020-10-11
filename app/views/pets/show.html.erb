@@ -1,7 +1,8 @@
 <% content_for :title, "Learn more about #{@pet.name}" %>
+<p>Back to <%= link_to "Pets at #{@pet.shelter.name}", shelter_pets_path(@pet.shelter_id) %> or <%= link_to "All Pets", '/pets' %></p>
 <section class="pet-card">
   <div class="pet-image">
-    <img src=<%= @pet.image %> />
+    <%= image_tag(@pet.image, width: '400px')  %>
   </div>
   <div class="pet-data">
     <h1>Meet <%= @pet.name %></h1>
@@ -10,7 +11,8 @@
     <p>Sex: <%= @pet.sex %></p>
     <p>Status: <%= @pet.status %> - <%= link_to @link, @path, method: "patch" %>
     <p>Find <%= @pet.name %> at <%= link_to @pet.shelter.name, shelter_path(@pet.shelter_id) %></p>
+    <%= link_to "Update Pet", edit_pet_path(@pet) %>
+    <%= link_to "Delete Pet", @pet, method: "delete" %>
   </div>
-  <%= link_to "Update Pet", edit_pet_path(@pet) %>
-  <%= link_to "Delete Pet", @pet, method: "delete" %>
+
 </section>

@@ -54,6 +54,13 @@ body {
    display: flex;
    flex-wrap: wrap;
    align-items: center;
+   padding: 5px;
+ }
+ .pet-data {
+
+ }
+ .pet-image {
+   width: 40%;
  }
  section li {
    list-style-type: none;
